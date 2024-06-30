@@ -27,6 +27,7 @@ fn main() {
     c.add(0);
     c.add(1);
     c.add(2);
+    c.add(2);
 
     for (i, v) in c.into_iter().enumerate() {
         println!("iter {i} val {v}");
