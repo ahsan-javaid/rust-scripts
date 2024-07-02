@@ -1,3 +1,4 @@
+use futures::executor::block_on;
 use std::{
     future::Future,
     pin::Pin,
@@ -6,7 +7,6 @@ use std::{
     thread,
     time::Duration,
 };
-use futures::executor::block_on;
 
 pub struct TimerFuture {
     shared_data: Arc<Mutex<SharedState>>,
@@ -72,7 +72,9 @@ impl TimerFuture {
             }
         });
 
-        TimerFuture { shared_data: shared_state }
+        TimerFuture {
+            shared_data: shared_state,
+        }
     }
 }
 
@@ -80,5 +82,4 @@ fn main() {
     let t = TimerFuture::new(Duration::from_millis(10000));
 
     block_on(t);
-    
 }
