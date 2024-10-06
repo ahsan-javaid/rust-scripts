@@ -30,7 +30,29 @@ impl PartialEq for Person {
     }
 }
 
-fn bubble_sort() {}
+fn bubble_sort<T>(arr: &mut [T]) where T: Ord {
+
+  if arr.is_empty() {
+    return
+  }
+
+  let mut sorted = false;
+  let mut n = arr.len();
+
+  while !sorted {
+    sorted = true;
+
+    for i in 0..n-1 {
+      if arr[i] > arr[i+1] {
+        arr.swap(i, i+1);
+        sorted = false; 
+      }
+    }
+
+    n = n - 1;
+  }
+
+}
 fn main() {
     let john = Person {
         id: 1,
@@ -47,4 +69,8 @@ fn main() {
     if john > doe {
         println!("Yes. John is taller than doe");
     }
+
+    let mut ve1 = vec![6, 5, 4, 3, 2, 1];
+    bubble_sort(&mut ve1);
+    println!("{:?}", ve1);
 }
