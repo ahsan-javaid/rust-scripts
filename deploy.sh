@@ -1,3 +1,3 @@
 git add .
-git commit -S -m "devop: distance of two arrays"
+git commit -S -m "feat: add option type"
 git push origin develop
