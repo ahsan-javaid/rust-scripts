@@ -28,14 +28,14 @@ fn add_last(stack: &mut Vec<i32>) -> Option<i32> {
   
 
  fn main() {
-    // Example 1
+    // example 1
     let result = divide(2.0, 3.0);
   
     match result {
       Some(x) => println!("Result: {x}"),
       None => println!("none")
     }
-    // Example 2
+    // exmaple 2
     let optional = None;
     check_optional(optional);
     let optional = Some(Box::new(9000));
